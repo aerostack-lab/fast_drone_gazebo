@@ -109,25 +109,6 @@ behaviors:
   task: MPC_MOTION_CONTROL
   requires:
   - task: SELF_LOCALIZE
-    minimum_performance: 80
-
-#------------------------------------------------------
-
-- behavior: MOVE_AT_SPEED_WITH_PLATFORM_CONTROL
-  package: quadrotor_motion_with_platform_control
-  task: MOVE_AT_SPEED
-
-- behavior: MOVE_VERTICAL_WITH_PLATFORM_CONTROL
-  package: quadrotor_motion_with_platform_control
-  task: MOVE_VERTICAL
-
-- behavior: ROTATE_WITH_PLATFORM_CONTROL
-  package: quadrotor_motion_with_platform_control
-  task: ROTATE
-
-- behavior: HOVER_WITH_FLIGHT_ACTION_CONTROL
-  package: basic_quadrotor_behaviors
-  task: HOVER
 
 #------------------------------------------------------
 - behavior: TAKE_OFF_WITH_PID

@@ -4,7 +4,7 @@ NUMID_DRONE=111
 DRONE_SWARM_ID=1
 MAV_NAME="hummingbird"
 
-export AEROSTACK_PROJECT=${AEROSTACK_STACK}/projects/fast_drone_gazebo
+export AEROSTACK_PROJECT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 . ${AEROSTACK_STACK}/config/mission/setup.sh
 

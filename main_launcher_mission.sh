@@ -4,7 +4,7 @@ NUMID_DRONE=111
 DRONE_SWARM_ID=1
 MAV_NAME="hummingbird"
 
-export AEROSTACK_PROJECT=${AEROSTACK_STACK}/projects/fast_drone_gazebo
+export AEROSTACK_PROJECT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 . ${AEROSTACK_STACK}/config/mission/setup.sh
 
@@ -25,6 +25,7 @@ exec bash\"" \
 --tab --title "Quadrotor Motion With MPC Control" --command "bash -c \"
 roslaunch quadrotor_motion_with_mpc_control quadrotor_motion_with_mpc_control.launch --wait \
     namespace:=drone$NUMID_DRONE \
+    robot_config_path:=${AEROSTACK_PROJECT}/configs/drone$NUMID_DRONE \
     drone_max_speed:=3;
 exec bash\""  \
 `#---------------------------------------------------------------------------------------------` \
@@ -34,7 +35,7 @@ exec bash\""  \
 roslaunch quadrotor_motion_with_pid_control quadrotor_motion_with_pid_control.launch --wait \
     namespace:=drone$NUMID_DRONE \
     robot_config_path:=${AEROSTACK_PROJECT}/configs/drone$NUMID_DRONE \
-    uav_mass:=0.7;
+    uav_mass:=0.75;
 exec bash\"" \
 `#---------------------------------------------------------------------------------------------` \
 `# Gazebo motor speed controller                                                               ` \
@@ -52,15 +53,6 @@ roslaunch gazebo_interface gazebo_interface.launch --wait \
     robot_namespace:=drone$NUMID_DRONE \
     drone_id:=$DRONE_SWARM_ID \
     mav_name:=$MAV_NAME;
-exec bash\""  \
-`#---------------------------------------------------------------------------------------------` \
-`# Behavior Execution Viewer                                                                   ` \
-`#---------------------------------------------------------------------------------------------` \
---tab --title "Behavior Execution Viewer" --command "bash -c \"
-roslaunch behavior_execution_viewer behavior_execution_viewer.launch --wait \
-  robot_namespace:=drone$NUMID_DRONE \
-  drone_id:=$NUMID_DRONE \
-  catalog_path:=${AEROSTACK_PROJECT}/configs/mission/behavior_catalog.yaml;
 exec bash\""  \
 `#---------------------------------------------------------------------------------------------` \
 `# Belief Memory Viewer                                                                        ` \
@@ -92,7 +84,7 @@ exec bash\""  \
 `# Belief Updater                                                                              ` \
 `#---------------------------------------------------------------------------------------------` \
 --tab --title "Belief Updater" --command "bash -c \"
-roslaunch belief_updater_process belief_updater_process.launch --wait \
+roslaunch common_belief_updater_process common_belief_updater_process.launch --wait \
     drone_id_namespace:=drone$NUMID_DRONE \
     drone_id:=$NUMID_DRONE;
 exec bash\""  \

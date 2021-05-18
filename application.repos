@@ -15,21 +15,23 @@ repositories:
     type: git 
     url: https://github.com/aerostack/basic_quadrotor_behaviors
     version: master
+  behaviors/quadrotor_motion_with_pid_control:
+    type: git 
+    url: https://github.com/aerostack/quadrotor_motion_with_pid_control
+    version: master
   behaviors/quadrotor_motion_with_mpc_control:
     type: git 
     url: https://github.com/aerostack/quadrotor_motion_with_mpc_control
     version: master
-  behaviors/quadrotor_motion_with_pid_control:
-    type: git 
-    url: https://github.com/aerostack/quadrotor_motion_with_pid_control
-    version: master    
+
 #----------------------------------------------------------------------------
 # Belief updaters
 #----------------------------------------------------------------------------
   belief_updaters/common_belief_updater:
     type: git 
     url: https://github.com/aerostack/common_belief_updater
-    version: master  
+    version: master
+
 #----------------------------------------------------------------------------
 # Mission control
 #----------------------------------------------------------------------------
@@ -37,6 +39,7 @@ repositories:
      type: git 
      url: https://github.com/aerostack/python_based_mission_interpreter
      version: master
+
 #----------------------------------------------------------------------------
 # Executive
 #----------------------------------------------------------------------------
@@ -44,21 +47,10 @@ repositories:
     type: git 
     url: https://github.com/cvar-upm/coordinator_cbc
     version: master
-  #----------------------------------------------------------------------------
-  # Integrar el behavior_execution_viewer con lo anterior (crear un behavior coordination viewer)
-  #----------------------------------------------------------------------------
-  executive/behavior_execution_viewer:
-    type: git 
-    url: https://github.com/aerostack/behavior_execution_viewer
-    version: master    
   executive/belief_manager:
     type: git
     url: https://github.com/aerostack/belief_manager
     version: master
-  #----------------------------------------------------------------------------
-  # Integrar el belief_memory_viewer con lo anterior
-  #----------------------------------------------------------------------------
-
 
 #----------------------------------------------------------------------------
 # Simulation
@@ -67,6 +59,7 @@ repositories:
     type: git 
     url: https://github.com/aerostack/quadrotor_gazebo_simulator
     version: master
+
 #----------------------------------------------------------------------------
 # Hardware interface
 #----------------------------------------------------------------------------
@@ -99,9 +92,6 @@ repositories:
     type: git 
     url: https://github.com/aerostack/robot_process
     version: master
-  #----------------------------------------------------------------------------
-  # Agrupar estos dos en catkin?
-  #----------------------------------------------------------------------------
   libraries/catkin_simple:
     type: git
     url: https://github.com/aerostack/catkin_simple
@@ -110,9 +100,6 @@ repositories:
     type: git 
     url: https://github.com/aerostack/eigen_catkin
     version: master
-  #----------------------------------------------------------------------------
-  # Agrupar estos dos en cvglib?
-  #----------------------------------------------------------------------------
   libraries/lib_cvgekf:
     type: git 
     url: https://github.com/aerostack/lib_cvgekf
@@ -121,9 +108,6 @@ repositories:
     type: git 
     url: https://github.com/aerostack/lib_cvgutils
     version: master
-  #----------------------------------------------------------------------------
-  # Sin agrupar 
-  #----------------------------------------------------------------------------
   libraries/mav_comm:
     type: git
     url: https://github.com/aerostack/mav_comm
@@ -132,10 +116,6 @@ repositories:
     type: git 
     url: https://github.com/aerostack/pugixml
     version: master
-  #----------------------------------------------------------------------------
-  # Candidatos a borrar
-  #----------------------------------------------------------------------------
-
   libraries/ros_utils_lib:
     type: git 
     url: https://bitbucket.org/visionaerialrobotics/ros_utils_lib
@@ -156,24 +136,11 @@ repositories:
     type: git 
     url: https://github.com/aerostack/dronemoduleros
     version: master
+
 #----------------------------------------------------------------------------
 # Deprecated messages
 #----------------------------------------------------------------------------
   deprecated/messages/dronemsgsros:
     type: git 
     url: https://github.com/aerostack/dronemsgsros
-    version: master
-    
-#----------------------------------------------------------------------------
-# Deprecated libraries
-#----------------------------------------------------------------------------
-
-
-
-#----------------------------------------------------------------------------
-# Borrar?
-#----------------------------------------------------------------------------
-  deprecated/common/behavior_execution_controller:
-    type: git 
-    url: https://github.com/aerostack/behavior_execution_controller
     version: master
